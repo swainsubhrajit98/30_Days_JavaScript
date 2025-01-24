@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Days JavaScript</title>
+</head>
+<body>
+    
+    <script>
+        let score = prompt("Enter your score:");
+
+// Convert the input to a number
+score = parseInt(score);
+
+// Use switch with case for different ranges
+switch (true) {
+    case (score >= 80 && score <= 100):
+        console.log("Grade: A");
+        break;
+    case (score >= 70 && score <= 89):
+        console.log("Grade: B");
+        break;
+    case (score >= 60 && score <= 69):
+        console.log("Grade: C");
+        break;
+    case (score >= 50 && score <= 59):
+        console.log("Grade: D");
+        break;
+    case (score >= 0 && score <= 49):
+        console.log("Grade: F");
+        break;
+    default:
+        console.log("Invalid score entered.");
+}
+
+
+
+// Prompt user to enter the month
+let month = prompt("Enter a month:");
+
+// Convert the input to lowercase to make it case-insensitive
+month = month.toLowerCase();
+
+// Use switch with the month
+switch (month) {
+    case "september":
+    case "october":
+    case "november":
+        console.log("The season is Autumn.");
+        break;
+    case "december":
+    case "january":
+    case "february":
+        console.log("The season is Winter.");
+        break;
+    case "march":
+    case "april":
+    case "may":
+        console.log("The season is Spring.");
+        break;
+    case "june":
+    case "july":
+    case "august":
+        console.log("The season is Summer.");
+        break;
+    default:
+        console.log("Invalid month entered.");
+}
+
+    </script>
+</body>
+</html>
