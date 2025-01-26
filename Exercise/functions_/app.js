@@ -372,3 +372,145 @@ function generateColors(num, colorType) {
 }
 console.log(generateColors(3, "hex"));
 console.log(generateColors(3, "rgb"));
+
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+console.log(shuffleArray([1, 2, 3, 4, 5]));
+
+function factorial(num) {
+  if (num < 0) return "Factorial is not defined for negative numbers";
+  if (num === 0 || num === 1) return 1;
+  let result = 1;
+  for (let i = 2; i <= num; i++) {
+    result *= i;
+  }
+  return result;
+}
+console.log(factorial(5));
+
+function isEmpty(param) {
+  return (
+    param === undefined ||
+    param === null ||
+    param === "" ||
+    (Array.isArray(param) && param.length === 0)
+  );
+}
+console.log(isEmpty([]));
+
+function sum() {
+  let total = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    total += arguments[i];
+  }
+  return total;
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+function sumOfArrayItems(arr) {
+  if (!Array.isArray(arr)) {
+    return "Input should be an array";
+  }
+  const allNumbers = arr.every((item) => typeof item === "number");
+  if (!allNumbers) {
+    return "All array items should be numbers.";
+  }
+  return arr.reduce((acc, curr) => acc + curr, 0);
+}
+console.log(sumOfArrayItems([1, 2, 3, 4, 5]));
+
+function average(arr) {
+  if (!Array.isArray(arr)) {
+    return "Input should be an array";
+  }
+  const allNumbers = arr.every((item) => typeof item === "number");
+  if (!allNumbers) {
+    return "All array items should be numbers.";
+  }
+  const sumOfItems = arr.reduce((acc, curr) => acc + curr, 0);
+  return sumOfItems / arr.length;
+}
+
+console.log(average([1, 2, 3, 4, 5]));
+
+function modifyArray(arr) {
+  if (arr.length < 5) {
+    return "Item not found";
+  }
+  arr[4] = arr[4].toUpperCase();
+  return arr;
+}
+
+console.log(
+  modifyArray(["Avocado", "Tomato", "Potato", "Mango", "Lemon", "Carrot"])
+);
+console.log(
+  modifyArray(["Google", "Facebook", "Apple", "Amazon", "Microsoft", "IBM"])
+);
+console.log(modifyArray(["Google", "Facebook", "Apple", "Amazon"]));
+
+function isPrime(num) {
+  if (num <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(isPrime(5));
+console.log(isPrime(10));
+
+function areItemsUnique(arr) {
+  const uniqueItems = new Set(arr);
+  return uniqueItems.size === arr.length;
+}
+
+console.log(areItemsUnique([1, 2, 3, 4]));
+console.log(areItemsUnique([1, 2, 2, 4]));
+
+function areItemsSameType(arr) {
+  if (arr.length === 0) return true;
+  const firstType = typeof arr[0];
+  return arr.every((item) => typeof item === firstType);
+}
+console.log(areItemsSameType([1, 2, 3]));
+console.log(areItemsSameType([1, "2", 3]));
+console.log(areItemsSameType([]));
+
+function isValidVariable(name) {
+  const regex = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/;
+  return regex.test(name);
+}
+console.log(isValidVariable("validVariable"));
+console.log(isValidVariable("invalid-variable"));
+console.log(isValidVariable("$valid$"));
+console.log(isValidVariable("123invalid"));
+console.log(isValidVariable("_validName"));
+
+function sevenRandomNumbers() {
+  const numbers = [];
+  while (numbers.length < 7) {
+    const randNum = Math.floor(Math.random() * 10);
+    if (!numbers.includes(randNum)) {
+      numbers.push(randNum);
+    }
+  }
+  return numbers;
+}
+console.log(sevenRandomNumbers());
+
+function reverseCountries(countries) {
+  const countriesCopy = [...countries];
+  return countriesCopy.reverse();
+}
+
+const countries = ["USA", "Canada", "Germany", "Australia", "India"];
+console.log(reverseCountries(countries));
