@@ -141,7 +141,6 @@ let newUser = {
 let updatedUsers = Object.assign({}, users, { Subhrajit: newUser });
 console.log(updatedUsers);
 
-
 let userKeys = Object.keys(users);
 console.log(userKeys);
 
@@ -153,8 +152,8 @@ for (let country in countries) {
   console.log(`Country: ${countryData.name}`);
   console.log(`Capital: ${countryData.capital}`);
   console.log(`Population: ${countryData.population}`);
-  console.log(`Languages: ${countryData.languages.join(', ')}`);
-  console.log('--------------------');
+  console.log(`Languages: ${countryData.languages.join(", ")}`);
+  console.log("--------------------");
 }
 
 const personAccount = {
@@ -163,7 +162,7 @@ const personAccount = {
   incomes: [],
   expenses: [],
 
-  totalIncome: function() {
+  totalIncome: function () {
     let total = 0;
     for (let i = 0; i < this.incomes.length; i++) {
       total += this.incomes[i].amount;
@@ -171,7 +170,7 @@ const personAccount = {
     return total;
   },
 
-  totalExpense: function() {
+  totalExpense: function () {
     let total = 0;
     for (let i = 0; i < this.expenses.length; i++) {
       total += this.expenses[i].amount;
@@ -179,21 +178,23 @@ const personAccount = {
     return total;
   },
 
-  accountInfo: function() {
-    return `${this.firstName} ${this.lastName} has a total income of $${this.totalIncome()} and total expenses of $${this.totalExpense()}.`;
+  accountInfo: function () {
+    return `${this.firstName} ${
+      this.lastName
+    } has a total income of $${this.totalIncome()} and total expenses of $${this.totalExpense()}.`;
   },
 
-  addIncome: function(description, amount) {
+  addIncome: function (description, amount) {
     this.incomes.push({ description, amount });
   },
 
-  addExpense: function(description, amount) {
+  addExpense: function (description, amount) {
     this.expenses.push({ description, amount });
   },
 
-  accountBalance: function() {
+  accountBalance: function () {
     return this.totalIncome() - this.totalExpense();
-  }
+  },
 };
 
 personAccount.addIncome("Salary", 5000);
@@ -205,24 +206,83 @@ console.log(personAccount.accountInfo());
 console.log("Account Balance: $" + personAccount.accountBalance());
 
 const usersData = [
-  { _id: 'ab12ex', username: 'Alex', email: 'alex@alex.com', password: '123123', createdAt: '08/01/2020 9:00 AM', isLoggedIn: false },
-  { _id: 'fg12cy', username: 'Asab', email: 'asab@asab.com', password: '123456', createdAt: '08/01/2020 9:30 AM', isLoggedIn: true },
-  { _id: 'zwf8md', username: 'Brook', email: 'brook@brook.com', password: '123111', createdAt: '08/01/2020 9:45 AM', isLoggedIn: true },
-  { _id: 'eefamr', username: 'Martha', email: 'martha@martha.com', password: '123222', createdAt: '08/01/2020 9:50 AM', isLoggedIn: false },
-  { _id: 'ghderc', username: 'Thomas', email: 'thomas@thomas.com', password: '123333', createdAt: '08/01/2020 10:00 AM', isLoggedIn: false }
+  {
+    _id: "ab12ex",
+    username: "Alex",
+    email: "alex@alex.com",
+    password: "123123",
+    createdAt: "08/01/2020 9:00 AM",
+    isLoggedIn: false,
+  },
+  {
+    _id: "fg12cy",
+    username: "Asab",
+    email: "asab@asab.com",
+    password: "123456",
+    createdAt: "08/01/2020 9:30 AM",
+    isLoggedIn: true,
+  },
+  {
+    _id: "zwf8md",
+    username: "Brook",
+    email: "brook@brook.com",
+    password: "123111",
+    createdAt: "08/01/2020 9:45 AM",
+    isLoggedIn: true,
+  },
+  {
+    _id: "eefamr",
+    username: "Martha",
+    email: "martha@martha.com",
+    password: "123222",
+    createdAt: "08/01/2020 9:50 AM",
+    isLoggedIn: false,
+  },
+  {
+    _id: "ghderc",
+    username: "Thomas",
+    email: "thomas@thomas.com",
+    password: "123333",
+    createdAt: "08/01/2020 10:00 AM",
+    isLoggedIn: false,
+  },
 ];
 
 const products = [
-  { _id: 'eedfcf', name: 'mobile phone', description: 'Huawei Honor', price: 200, ratings: [{ userId: 'fg12cy', rate: 5 }, { userId: 'zwf8md', rate: 4.5 }], likes: [] },
-  { _id: 'aegfal', name: 'Laptop', description: 'MacPro: System Darwin', price: 2500, ratings: [], likes: ['fg12cy'] },
-  { _id: 'hedfcg', name: 'TV', description: 'Smart TV:Procaster', price: 400, ratings: [{ userId: 'fg12cy', rate: 5 }], likes: ['fg12cy'] }
+  {
+    _id: "eedfcf",
+    name: "mobile phone",
+    description: "Huawei Honor",
+    price: 200,
+    ratings: [
+      { userId: "fg12cy", rate: 5 },
+      { userId: "zwf8md", rate: 4.5 },
+    ],
+    likes: [],
+  },
+  {
+    _id: "aegfal",
+    name: "Laptop",
+    description: "MacPro: System Darwin",
+    price: 2500,
+    ratings: [],
+    likes: ["fg12cy"],
+  },
+  {
+    _id: "hedfcg",
+    name: "TV",
+    description: "Smart TV:Procaster",
+    price: 400,
+    ratings: [{ userId: "fg12cy", rate: 5 }],
+    likes: ["fg12cy"],
+  },
 ];
 
 function signUp(username, email, password) {
-  const userExists = usersData.some(user => user.email === email);
+  const userExists = usersData.some((user) => user.email === email);
 
   if (userExists) {
-    console.log('User already exists with this email.');
+    console.log("User already exists with this email.");
   } else {
     const newUser = {
       _id: Date.now().toString(),
@@ -230,76 +290,125 @@ function signUp(username, email, password) {
       email: email,
       password: password,
       createdAt: new Date().toLocaleString(),
-      isLoggedIn: false
+      isLoggedIn: false,
     };
     usersData.push(newUser);
-    console.log('User successfully signed up!');
+    console.log("User successfully signed up!");
   }
 }
 
 function signIn(email, password) {
-  const user = usersData.find(user => user.email === email);
+  const user = usersData.find((user) => user.email === email);
 
   if (!user) {
-    console.log('No user found with this email.');
+    console.log("No user found with this email.");
   } else if (user.password === password) {
     user.isLoggedIn = true;
-    console.log('Successfully signed in!');
+    console.log("Successfully signed in!");
   } else {
-    console.log('Incorrect password.');
+    console.log("Incorrect password.");
   }
 }
 
 function rateProduct(userId, productId, rating) {
-  const product = products.find(p => p._id === productId);
+  const product = products.find((p) => p._id === productId);
 
   if (!product) {
-    console.log('Product not found.');
+    console.log("Product not found.");
     return;
   }
 
-  const existingRating = product.ratings.find(r => r.userId === userId);
+  const existingRating = product.ratings.find((r) => r.userId === userId);
 
   if (existingRating) {
     existingRating.rate = rating;
-    console.log('Rating updated.');
+    console.log("Rating updated.");
   } else {
     product.ratings.push({ userId, rate: rating });
-    console.log('Rating added.');
+    console.log("Rating added.");
   }
 }
 
 function averageRating(productId) {
-  const product = products.find(p => p._id === productId);
+  const product = products.find((p) => p._id === productId);
 
   if (!product) {
-    console.log('Product not found.');
+    console.log("Product not found.");
     return;
   }
 
   if (product.ratings.length === 0) {
-    console.log('No ratings yet for this product.');
+    console.log("No ratings yet for this product.");
     return;
   }
 
-  const totalRating = product.ratings.reduce((total, rating) => total + rating.rate, 0);
+  const totalRating = product.ratings.reduce(
+    (total, rating) => total + rating.rate,
+    0
+  );
   const average = totalRating / product.ratings.length;
 
-  console.log(`Average rating for product "${product.name}" is ${average.toFixed(2)}`);
+  console.log(
+    `Average rating for product "${product.name}" is ${average.toFixed(2)}`
+  );
 }
 
+signUp("John", "john@example.com", "123456");
+signUp("Alex", "alex@alex.com", "123123");
 
-signUp('John', 'john@example.com', '123456');
-signUp('Alex', 'alex@alex.com', '123123'); 
+signIn("john@example.com", "123456");
+signIn("alex@alex.com", "wrongpassword");
 
-signIn('john@example.com', '123456');
-signIn('alex@alex.com', 'wrongpassword');
+rateProduct("fg12cy", "eedfcf", 4);
+rateProduct("zwf8md", "eedfcf", 5);
+rateProduct("fg12cy", "eedfcf", 3);
 
-rateProduct('fg12cy', 'eedfcf', 4);
-rateProduct('zwf8md', 'eedfcf', 5);
-rateProduct('fg12cy', 'eedfcf', 3);
-
-averageRating('eedfcf');
-averageRating('aegfal');
+averageRating("eedfcf");
+averageRating("aegfal");
 
 console.log(products);
+
+// Excercise of Higher order function
+const sortByName = [...countries].sort((a, b) => a.name.localeCompare(b.name));
+const sortByCapital = [...countries].sort((a, b) =>
+  a.capital.localeCompare(b.capital)
+);
+const sortByPopulation = [...countries].sort(
+  (a, b) => a.population - b.population
+);
+
+console.log("Sorted by Name:", sortByName);
+console.log("Sorted by Capital:", sortByCapital);
+console.log("Sorted by Population:", sortByPopulation);
+
+function mostSpokenLanguages(countries, limit) {
+  const languageCount = {};
+  countries.forEach((country) => {
+    country.languages.forEach((language) => {
+      if (languageCount[language]) {
+        languageCount[language]++;
+      } else {
+        languageCount[language] = 1;
+      }
+    });
+  });
+  const languageArray = Object.entries(languageCount).map(
+    ([language, count]) => ({
+      country: language,
+      count: count,
+    })
+  );
+  const sortedLanguages = languageArray.sort((a, b) => b.count - a.count);
+  return sortedLanguages.slice(0, limit);
+}
+console.log(mostSpokenLanguages(countries, 10));
+
+function mostPopulatedCountries(countries, limit) {
+  const sortedCountries = [...countries].sort(
+    (a, b) => b.population - a.population
+  );
+  return sortedCountries.slice(0, limit);
+}
+
+console.log(mostPopulatedCountries(countries, 10));
+console.log(mostPopulatedCountries(countries, 3));
