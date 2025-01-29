@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.completed {
+    background-color: green;
+}
+
+.ongoing {
+    background-color: yellow;
+}
+
+.coming {
+    background-color: red;
+}
+
+.year,
+.date-time {
+    font-size: 2em;
+}
+
+.date-time {
+    margin: 20px 100px;
+}
+
+.wrapper {
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 60px;
+    padding: 10px 20px;
+
+}
