@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+    grid-template-columns: repeat(6,1fr);
+    gap: 15px;
+}
+
+.country-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #eee;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
