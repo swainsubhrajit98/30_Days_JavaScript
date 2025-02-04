@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Data Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>World Data Visualization</h2>
+    <p>Click a button to view Population or Language Data</p>
+
+    <div class="btn-container">
+        <button class="btn" onclick="displayData('population')">Population</button>
+        <button class="btn" onclick="displayData('languages')">Languages</button>
+    </div>
+    <div class="chart-container" id="chart-container"></div>
+
+    <script src="./countries_data.js"></script>
+    <script src="./app.js"></script>
+
+
+</body>
+</html>
